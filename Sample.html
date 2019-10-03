@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <script src="https://cdn.syncfusion.com/ej2/dist/ej2.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-polyfills/0.1.42/polyfill.min.js"></script>
+    <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="stackblitz-container material">
+        <div class="control-section">
+            <div class="content-wrapper">
+                <div id="Schedule">
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var data = [{
+                Id: 1,
+                Subject: "Server Maintenance",
+                StartTime: new Date(2018, 1, 11, 10, 0),
+                EndTime: new Date(2018, 1, 11, 11, 30),
+                Enable: true
+            },
+            {
+                Id: 2,
+                Subject: "Art & Painting Gallery",
+                StartTime: new Date(2018, 1, 12, 12, 0),
+                EndTime: new Date(2018, 1, 12, 14, 0),
+                Enable: false
+            }];
+
+            var scheduleObj = new ej.schedule.Schedule({
+                width: "100%",
+                height: "650px",
+                selectedDate: new Date(2018, 1, 15),
+                hover: function (args) {
+                    if (args.element.classList.contains("e-appointment")) {
+                        var event = this.getEventDetails(args.element);
+                        this.eventSettings.enableTooltip = event.Enable;
+                    }
+                },
+                eventSettings: {
+                    dataSource: data,
+                    enableTooltip: true
+                }
+            });
+            scheduleObj.appendTo('#Schedule');
+        </script>
+    </div>
+</body>
+
+</html>
