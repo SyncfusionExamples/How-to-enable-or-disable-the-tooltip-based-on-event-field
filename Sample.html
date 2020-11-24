@@ -39,6 +39,7 @@
                     if (args.element.classList.contains("e-appointment")) {
                         var event = this.getEventDetails(args.element);
                         this.eventSettings.enableTooltip = event.Enable;
+						this.dataBind();
                     }
                 },
                 eventSettings: {
