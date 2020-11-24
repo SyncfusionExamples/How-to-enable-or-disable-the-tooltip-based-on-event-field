@@ -29,6 +29,13 @@
                 StartTime: new Date(2018, 1, 12, 12, 0),
                 EndTime: new Date(2018, 1, 12, 14, 0),
                 Enable: false
+            },
+            {
+                Id: 3,
+                Subject: "Gallery",
+                StartTime: new Date(2018, 1, 13, 12, 0),
+                EndTime: new Date(2018, 1, 13, 14, 0),
+                Enable: true
             }];
 
             var scheduleObj = new ej.schedule.Schedule({
@@ -39,7 +46,7 @@
                     if (args.element.classList.contains("e-appointment")) {
                         var event = this.getEventDetails(args.element);
                         this.eventSettings.enableTooltip = event.Enable;
-						this.dataBind();
+                        this.dataBind();
                     }
                 },
                 eventSettings: {
